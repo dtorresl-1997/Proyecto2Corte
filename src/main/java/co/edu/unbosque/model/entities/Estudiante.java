@@ -3,6 +3,7 @@ package co.edu.unbosque.model.entities;
 public class Estudiante {
     private String id;
     private String nombre;
+    private String correo;
 
     public Estudiante(String id, String nombre) {
         this.id = id;
