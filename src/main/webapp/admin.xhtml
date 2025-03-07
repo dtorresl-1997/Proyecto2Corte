@@ -8,16 +8,13 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Inicio de Sesión</title>
+    <title>Admin</title>
 </h:head>
 <h:body>
     Hola Mundo
     <h:form>
-        <p:commandButton value="Admin"
-                         action="#{flujoVistas.envioPantallaIndexToAdmin()}"
-        />
-        <p:commandButton value="User"
-                         action="#{flujoVistas.envioPantallaIndexToUser()}"
+        <p:commandButton value="Regreso"
+                         action="#{flujoVistas.regresoPantallaAdminToIndex()}"
         />
     </h:form>
 </h:body>
