@@ -4,6 +4,8 @@ public class Estudiante {
     private String id;
     private String nombre;
     private String correo;
+    private String cedula;
+    // hola David
 
     public Estudiante(String id, String nombre) {
         this.id = id;
