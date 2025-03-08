@@ -1,10 +1,10 @@
-package co.edu.unbosque.gestionConcesionario.model;
+package co.edu.unbosque.gestionConcesionario.model.entities;
 
-public class admin {
+public class Admin {
     private String user = "admin";
     private String password = "123";
 
-    public admin(String user, String password) {
+    public Admin(String user, String password) {
         this.user = user;
         this.password = password;
     }

@@ -12,19 +12,25 @@ public class flujoVistas implements Serializable {
     public flujoVistas() {
     }
 
-    public String envioPantallaIndexToAdmin() {
-        return "admin.xhtml";
-    }
-
-    public String regresoPantallaAdminToIndex() {
-        return "index.xhtml";
-    }
-
+    // From index.xhtml
+    public String envioPantallaIndexToAdmin() {return "admin.xhtml";}
     public String envioPantallaIndexToUser() {
         return "user.xhtml";
     }
 
-    public String regresoPantallaUserToIndex() {
+    // From admin.xhtml
+    public String envioPantallaAdminToAdminPanel(){return "adminPanel.xhtml";}
+
+    // From user.xhtml
+
+    // Returns
+    public String regresoPantallaToAdmin() {
+        return "admin.xhtml";
+    }
+    public String regresoPantallaToAdminPanel() {return "adminPanel.xhtml";}
+    public String regresoPantallaToIndex() {
         return "index.xhtml";
     }
+    public String regresoPantallaToUser() {return "user.xhtml";}
+    public String regresoPantallaToUserPanel() {return "userPanel.xhtml";}
 }
