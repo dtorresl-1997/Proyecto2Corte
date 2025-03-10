@@ -10,7 +10,7 @@ public class VehiculoDTO {
     private String estado; // NUEVO, USADO
     private String tipo; // CARGA, FAMILIAR, UTILITARIO
 
-    // Constructor vacio
+    // cnstructor vacio
     public VehiculoDTO() {}
 
     // Constructor con parámetros

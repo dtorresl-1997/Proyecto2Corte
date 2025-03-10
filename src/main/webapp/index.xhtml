@@ -7,15 +7,24 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
     <title>Bienvenido a BosqueCar</title>
-</head>
-<body>
-<h:form>
-    <h1>Bienvenido a BosqueCar</h1>
-    <p>El mejor concesionario para encontrar vehículos nuevos y usados de calidad.</p>
-    <h:commandButton value="Administrador" action="#{flujoVistas.envioPantallaIndexToAdmin}" />
-    <h:commandButton value="Usuario" action="#{flujoVistas.envioPantallaIndexToUser}" />
-</h:form>
-</body>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Bienvenido a BosqueCar">
+            <h:outputText value="El mejor concesionario para encontrar vehículos nuevos y usados de calidad." />
+
+            <br/><br/>
+
+            <p:panelGrid columns="2" style="margin-top:10px;">
+                <p:commandButton value="Administrador" action="#{flujoVistas.envioPantallaIndexToAdmin}" styleClass="ui-button-primary"/>
+                <p:commandButton value="Usuario" action="#{flujoVistas.envioPantallaIndexToUser}" styleClass="ui-button-success"/>
+                <h:commandButton value="Gestión de Vehículos" action="vehiculo?faces-redirect=true" />
+            </p:panelGrid>
+        </p:panel>
+    </h:form>
+</h:body>
+
 </html>

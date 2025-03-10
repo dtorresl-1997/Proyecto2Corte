@@ -22,8 +22,6 @@ public class Cotizacion implements Serializable {
     private double precioCotizado;
     private LocalDateTime fecha;
 
-    // Getters y Setters
-
     public Long getId() {
         return id;
     }

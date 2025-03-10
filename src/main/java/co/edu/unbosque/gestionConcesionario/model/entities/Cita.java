@@ -17,8 +17,6 @@ public class Cita implements Serializable {
     private String motivo;
     private LocalDateTime fecha;
 
-    // Getters y Setters
-
     public Long getId() {
         return id;
     }
