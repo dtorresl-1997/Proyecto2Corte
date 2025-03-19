@@ -8,15 +8,28 @@ import java.io.Serializable;
 @Table(name = "clientes")
 public class Cliente implements Serializable {
 
+    // Parametros
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private String apellido;
     private String cedula;
     private String email;
 
+    // Constructor sin parametros
+    public Cliente(){}
+
+    // Constructor con parametros
+    public Cliente(Long id, String nombre, String apellido, String cedula, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.email = email;
+    }
+
+    // Getters & Setters
     public Long getId() {
         return id;
     }

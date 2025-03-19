@@ -1,9 +1,13 @@
 package co.edu.unbosque.gestionConcesionario.model.dataMappers;
 
 import co.edu.unbosque.gestionConcesionario.model.dto.AdminDTO;
+import co.edu.unbosque.gestionConcesionario.model.entities.Admin;
 
-public class AdminDataMapper {
-    public boolean verifyCredentials(String username, String password, AdminDTO admin) {
-        return admin.getUsername().equals(username) && admin.getPassword().equals(password);
+import java.util.function.Function;
+
+public class AdminDataMapper extends DataMapper<Admin, AdminDTO>{
+
+    public AdminDataMapper(Function<Admin, AdminDTO> toDTO, Function<AdminDTO, Admin> toEntity) {
+        super(toDTO, toEntity);
     }
 }

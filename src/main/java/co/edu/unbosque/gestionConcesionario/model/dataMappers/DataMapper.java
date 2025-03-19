@@ -5,14 +5,18 @@ import java.util.stream.Collectors;
 import java.util.function.Function;
 
 public class DataMapper<E, D> {
+
+    // Parametros
     private final Function<E, D> toDTO;
     private final Function<D, E> toEntity;
 
+    // Constructor con parametros
     public DataMapper(Function<E, D> toDTO, Function<D, E> toEntity) {
         this.toDTO = toDTO;
         this.toEntity = toEntity;
     }
 
+    // Metodos
     public D entityToDTO(E entity) {
         return toDTO.apply(entity);
     }

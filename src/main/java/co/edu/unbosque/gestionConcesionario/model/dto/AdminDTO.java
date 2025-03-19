@@ -1,20 +1,27 @@
 package co.edu.unbosque.gestionConcesionario.model.dto;
 
 public class AdminDTO {
-    private String username;
+
+    // Parametros
+    private String user;
     private String password;
 
-    public AdminDTO(String username, String password) {
-        this.username = username;
+    // Constructor sin parametros
+    public AdminDTO(){}
+
+    // Constructor con parametros
+    public AdminDTO(String user, String password) {
+        this.user = user;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    // Getters & Setters
+    public String getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getPassword() {

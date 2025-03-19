@@ -5,32 +5,34 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "vehiculos")
 public class Vehiculo implements Serializable {
+    // Asignacion de filas de la tabla
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String marca;
     private String modelo;
-    private int anio;
+    private int año;
     private double precio;
     private int kilometraje;
-    private String estado; // NUEVO, USADOsss
+    private String estado; // NUEVO, USADO
     private String tipo; // CARGA, FAMILIAR, UTILITARIO
 
-    public Vehiculo() {
+    // Constructor sin parametros
+    public Vehiculo() {}
 
-    }
-
-    public Vehiculo(Long id, String marca, String modelo, int anio, double precio, int kilometraje, String estado, String tipo) {
+    // Constructor con parametros
+    public Vehiculo(Long id, String marca, String modelo, int año, double precio, int kilometraje, String estado, String tipo) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
-        this.anio = anio;
+        this.año = año;
         this.precio = precio;
         this.kilometraje = kilometraje;
         this.estado = estado;
         this.tipo = tipo;
     }
 
+    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -55,12 +57,12 @@ public class Vehiculo implements Serializable {
         this.modelo = modelo;
     }
 
-    public int getAnio() {
-        return anio;
+    public int getAño() {
+        return año;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setAño(int año) {
+        this.año = año;
     }
 
     public double getPrecio() {

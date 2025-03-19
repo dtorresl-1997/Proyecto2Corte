@@ -1,29 +1,43 @@
 package co.edu.unbosque.gestionConcesionario.view.beans;
 
-import co.edu.unbosque.gestionConcesionario.model.dataMappers.AdminDataMapper;
-import co.edu.unbosque.gestionConcesionario.model.dto.AdminDTO;
-import co.edu.unbosque.gestionConcesionario.model.persistence.dao.AdminDAO;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
+import co.edu.unbosque.gestionConcesionario.model.persistence.dao.AdminDAO;
 import java.io.Serializable;
+import java.sql.Connection;
 
 @Named("adminBean")
 @SessionScoped
 public class AdminBean implements Serializable {
+
+    // Parametros
     private String username;
     private String password;
-    private final AdminDAO adminDAO = new AdminDAO();
-    private final AdminDataMapper adminDataMapper = new AdminDataMapper();
+    private boolean autenticado = false;
+    private AdminDAO adminDAO;
 
+    // Constructor con parametros
+    public AdminBean() {
+        Connection connection = ConexionDB.getConnection();
+        adminDAO = new AdminDAO(connection);
+    }
+
+    // Metodos
     public String login() {
-        AdminDTO admin = adminDAO.getAdmin();
-        if (adminDataMapper.verifyCredentials(username, password, admin)) {
+        if (adminDAO.validarAdmin(username, password)) {
+            autenticado = true;
             return "adminPanel.xhtml";
         } else {
-            return null;
+            return "admin.xhtml";
         }
     }
 
+    public String logout() {
+        autenticado = false;
+        return "index.xhtml";
+    }
+
+    // Getters y Setters
     public String getUsername() {
         return username;
     }
@@ -38,5 +52,21 @@ public class AdminBean implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAutenticado() {
+        return autenticado;
+    }
+
+    public void setAutenticado(boolean autenticado) {
+        this.autenticado = autenticado;
+    }
+
+    public AdminDAO getAdminDAO() {
+        return adminDAO;
+    }
+
+    public void setAdminDAO(AdminDAO adminDAO) {
+        this.adminDAO = adminDAO;
     }
 }

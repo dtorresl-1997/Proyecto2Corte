@@ -1,30 +1,33 @@
 package co.edu.unbosque.gestionConcesionario.model.dto;
 
 public class VehiculoDTO {
+
+    // Variables
     private Long id;
     private String marca;
     private String modelo;
-    private int anio;
+    private int año;
     private double precio;
     private int kilometraje;
     private String estado; // NUEVO, USADO
     private String tipo; // CARGA, FAMILIAR, UTILITARIO
 
-    // cnstructor vacio
+    // Constructor sin parametros
     public VehiculoDTO() {}
 
     // Constructor con parámetros
-    public VehiculoDTO(Long id, String marca, String modelo, int anio, double precio, int kilometraje, String estado, String tipo) {
+    public VehiculoDTO(Long id, String marca, String modelo, int año, double precio, int kilometraje, String estado, String tipo) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
-        this.anio = anio;
+        this.año = año;
         this.precio = precio;
         this.kilometraje = kilometraje;
         this.estado = estado;
         this.tipo = tipo;
     }
 
+    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -49,12 +52,12 @@ public class VehiculoDTO {
         this.modelo = modelo;
     }
 
-    public int getAnio() {
-        return anio;
+    public int getAño() {
+        return año;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setAño(int año) {
+        this.año = año;
     }
 
     public double getPrecio() {

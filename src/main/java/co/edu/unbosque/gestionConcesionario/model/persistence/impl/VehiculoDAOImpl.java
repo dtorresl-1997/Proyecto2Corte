@@ -1,8 +1,9 @@
-package co.edu.unbosque.gestionConcesionario.model.persistence.dao;
+package co.edu.unbosque.gestionConcesionario.model.persistence.impl;
 
 import co.edu.unbosque.gestionConcesionario.model.entities.Vehiculo;
 
 
+import co.edu.unbosque.gestionConcesionario.model.persistence.dao.IGenericoDAO;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
