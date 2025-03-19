@@ -7,12 +7,54 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-<head>
-    <title>Panel Administrador</title>
-</head>
+<h:head>
+    <title>Panel de Administración</title>
+</h:head>
+
 <h:body>
-    Hola Mundo
     <h:form>
+        <h1>Gestión de Vehículos</h1>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Marca:"/>
+            <p:inputText value="#{vehiculoBean.vehiculo.marca}"/>
+
+            <h:outputLabel value="Modelo:"/>
+            <p:inputText value="#{vehiculoBean.vehiculo.modelo}"/>
+
+            <h:outputLabel value="Año:"/>
+            <p:inputText value="#{vehiculoBean.vehiculo.anio}"/>
+
+            <h:outputLabel value="Estado:"/>
+            <p:selectOneMenu value="#{vehiculoBean.vehiculo.estado}">
+                <f:selectItem itemValue="Nuevo" itemLabel="Nuevo"/>
+                <f:selectItem itemValue="Usado" itemLabel="Usado"/>
+                <f:selectItem itemValue="Vendido" itemLabel="Vendido"/>
+                <f:selectItem itemValue="Reservado" itemLabel="Reservado"/>
+            </p:selectOneMenu>
+        </h:panelGrid>
+
+        <p:commandButton value="Registrar Vehículo" action="#{vehiculoBean.registrarVehiculo}" update="@form"/>
+        <p:commandButton value="Actualizar Vehículo" action="#{vehiculoBean.actualizarVehiculo}" update="@form"/>
+
+        <h2>Lista de Vehículos</h2>
+        <p:dataTable value="#{vehiculoBean.listaVehiculos}" var="vehiculo">
+            <p:column headerText="Marca">#{vehiculo.marca}</p:column>
+            <p:column headerText="Modelo">#{vehiculo.modelo}</p:column>
+            <p:column headerText="Año">#{vehiculo.anio}</p:column>
+            <p:column headerText="Estado">#{vehiculo.estado}</p:column>
+        </p:dataTable>
+
+        <h2>Vehículos más solicitados</h2>
+        <p:dataTable value="#{vehiculoBean.vehiculosMasSolicitados}" var="vehiculo">
+            <p:column headerText="Marca">#{vehiculo.marca}</p:column>
+            <p:column headerText="Modelo">#{vehiculo.modelo}</p:column>
+            <p:column headerText="Reservas">#{vehiculo.reservas}</p:column>
+        </p:dataTable>
+
+        <p:commandButton value="Regresar" action="#{flujoVistas.envioPantallaIndexToAdmin}" />
+        <p:commandButton value="Cerrar Sesión" action="#{flujoVistas.regresoPantallaToIndex()}"/>
     </h:form>
 </h:body>
+
 </html>

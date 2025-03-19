@@ -2,56 +2,39 @@ package co.edu.unbosque.gestionConcesionario.view.beans;
 
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
-import co.edu.unbosque.gestionConcesionario.model.persistence.dao.AdminDAO;
 import java.io.Serializable;
-import java.sql.Connection;
 
 @Named("adminBean")
 @SessionScoped
 public class AdminBean implements Serializable {
+    private String usuario;
+    private String contrasena;
+    private boolean autenticado;
 
-    // Parametros
-    private String username;
-    private String password;
-    private boolean autenticado = false;
-    private AdminDAO adminDAO;
-
-    // Constructor con parametros
-    public AdminBean() {
-        Connection connection = ConexionDB.getConnection();
-        adminDAO = new AdminDAO(connection);
-    }
-
-    // Metodos
-    public String login() {
-        if (adminDAO.validarAdmin(username, password)) {
+    public String validarAdmin() {
+        if ("admin".equals(usuario) && "123".equals(contrasena)) {
             autenticado = true;
-            return "adminPanel.xhtml";
+            return "adminPanel.xhtml?faces-redirect=true";
         } else {
-            return "admin.xhtml";
+            return "";
         }
     }
 
-    public String logout() {
-        autenticado = false;
-        return "index.xhtml";
-    }
-
     // Getters y Setters
-    public String getUsername() {
-        return username;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public boolean isAutenticado() {
@@ -60,13 +43,5 @@ public class AdminBean implements Serializable {
 
     public void setAutenticado(boolean autenticado) {
         this.autenticado = autenticado;
-    }
-
-    public AdminDAO getAdminDAO() {
-        return adminDAO;
-    }
-
-    public void setAdminDAO(AdminDAO adminDAO) {
-        this.adminDAO = adminDAO;
     }
 }

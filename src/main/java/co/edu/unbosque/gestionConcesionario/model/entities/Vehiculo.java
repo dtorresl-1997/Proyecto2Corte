@@ -14,14 +14,14 @@ public class Vehiculo implements Serializable {
     private int año;
     private double precio;
     private int kilometraje;
-    private String estado; // NUEVO, USADO
-    private String tipo; // CARGA, FAMILIAR, UTILITARIO
+    private String estado; // Nuevo, Usado, Vendido, Reservado
+    private String categoria; // Carga, Familiar, Utilitario
 
     // Constructor sin parametros
     public Vehiculo() {}
 
     // Constructor con parametros
-    public Vehiculo(Long id, String marca, String modelo, int año, double precio, int kilometraje, String estado, String tipo) {
+    public Vehiculo(Long id, String marca, String modelo, int año, double precio, int kilometraje, String estado, String categoria) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
@@ -29,7 +29,7 @@ public class Vehiculo implements Serializable {
         this.precio = precio;
         this.kilometraje = kilometraje;
         this.estado = estado;
-        this.tipo = tipo;
+        this.categoria = categoria;
     }
 
     // Getters & Setters
@@ -89,11 +89,11 @@ public class Vehiculo implements Serializable {
         this.estado = estado;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }
